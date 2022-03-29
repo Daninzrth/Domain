@@ -15,10 +15,17 @@ function GetDomain() {
   var noun = ["jogger", "racoon", "dog", "butterfly"];
   var service = [".com", ".net", ".es"];
 
-  return (
-    pronoun[Math.floor(Math.random() * (pronoun.length - 1))] +
-    adj[Math.floor(Math.random() * (adj.length - 1))] +
-    noun[Math.floor(Math.random() * (noun.length - 1))] +
-    service[Math.floor(Math.random() * (service.length - 1))]
-  );
+  var resultados = [];
+
+  for (let i = 0; i < pronoun.length; i++) {
+    for (let j = 0; j < adj.length; j++) {
+      for (let k = 0; k < noun.length; k++) {
+        for (let l = 0; l < service.length; l++) {
+          resultados.push(pronoun[i] + adj[j] + noun[k] + service[l]);
+        }
+      }
+    }
+  }
+
+  return resultados.join("<br>");
 }
